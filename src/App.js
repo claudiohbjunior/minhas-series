@@ -1,4 +1,5 @@
 import React, { useState, useEffect }from "react";  
+import Home from "./Home";
 import Header from "./Header";
 import Generos from "./Generos";
 import axios from 'axios'
@@ -9,9 +10,7 @@ import {
   Routes
 } from 'react-router-dom'
 
-const Home = () => {
-  return <h1>Home</h1>
-}
+
 
 
 function App() {
@@ -28,12 +27,13 @@ function App() {
     <div>
         <Header />
         <Routes>
-        <Route path="/" exact element={Home} />
+        <Route path="/" exact element={<Home />} />
         <Route path="/generos" element={<Generos />} />
         </Routes>
         <pre>{JSON.stringify(data)}</pre>
     </div>
     </Router>
+    
   );
 }
 
