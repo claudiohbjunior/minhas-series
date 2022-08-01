@@ -39,7 +39,7 @@ const Series = () => {
                 <h1>Series</h1>        
                 <div><Link to='/series/novo' className="btn btn-primary">Nova Serie</Link></div>       
                 <div className="alert alert-warning" role="alert">
-                Você não possui séries criadas.
+                Você não possui séries criadas!
 </div>
             </div>
         )
