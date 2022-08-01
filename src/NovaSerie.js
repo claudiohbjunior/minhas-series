@@ -1,30 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import axios from 'axios'
 import { Navigate } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 
 
-const EditarGenero = () =>{
-    const params = useParams()
-
+const NovaSerie= () =>{
     const [name, setName] = useState('')
     const [success, setSuccess] = useState(false)
-
-    useEffect(() => {
-        axios
-        .get('/api/genres/' + params.id)
-        .then(res => {
-            setName(res.data.name)
-        })
-    }, [params.id]) 
-
-
     const onChange = evt => {
         setName(evt.target.value)
     }
     const save = () => {
         axios
-        .put('/api/genres/' + params.id, {
+        .post('/api/series', {
             name
         })
         .then(res => {
@@ -32,11 +19,11 @@ const EditarGenero = () =>{
         })
     }
     if (success) {
-        return <Navigate to="/generos" />
+        return <Navigate to="/series" />
     }
     return (
         <div className="container">
-            <h1>Editar Genêro</h1>
+            <h1>Nova série</h1>
             <form>
             <div className="form-group">
             <label for="name">Nome</label>
@@ -48,4 +35,4 @@ const EditarGenero = () =>{
     )
 }
 
-export default EditarGenero
+export default NovaSerie

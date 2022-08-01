@@ -1,13 +1,15 @@
 //LEMBRAR DE RODAR O node .\node_modules\minhas-series-server\index.js
 
-import React, { useState, useEffect }from "react";    
+import React from "react";    
 
 import Home from "./Home";
 import Header from "./Header";
 import Generos from "./Generos";
 import NovoGenero from "./NovoGenero";
-import axios from 'axios'
 import EditarGenero from "./EditarGenero";
+import Series from "./Series";
+import NovaSerie from "./NovaSerie";
+import InfoSerie from "./InfoSerie";
 
 import {
   BrowserRouter as Router,
@@ -16,17 +18,7 @@ import {
 } from 'react-router-dom'
 
 
-
-
-
 function App() {
-  const [data, setData] = useState({})
-  useEffect(() =>{
-    axios.get('/api').then(res =>{
-      setData(res.data)
-    }) 
-    
-  }, [])
 
   return (
     <Router>
@@ -34,11 +26,13 @@ function App() {
         <Header />
         <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/generos/:id" exact element={<EditarGenero />} />
-        <Route path="/generos/novo" exact element={<NovoGenero />} />
-        <Route path="/generos" exact element={<Generos />} />
+        <Route path="/generos" exact element={<Generos />} />      
+        <Route path="/generos/novo" exact element={<NovoGenero />} />  
+        <Route path="/generos/:id" exact element={<EditarGenero />} /> 
+        <Route path="/series" exact element={<Series />} /> 
+        <Route path="/series/novo" exact element={<NovaSerie />} /> 
+        <Route path="/series/:id" exact element={<InfoSerie />} />
         </Routes>
-        <pre>{JSON.stringify(data)}</pre>
     </div>
     </Router>
     
