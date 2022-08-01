@@ -19,15 +19,20 @@ import {
   
   return (
     <Navbar color="light" expand='md'>
-    <NavbarBrand tag={Link} to='/'>Minhas Series</NavbarBrand>
-    <NavbarToggler onClick={toggle}/>
-      <Collapse isOpen={open} navbar>
-        <Nav className="ml-auto" navbar>
-          <NavItem>
-            <NavLink tag={Link} to="/generos">Generos</NavLink>
-          </NavItem>
-        </Nav>
-      </Collapse>
+        <NavbarBrand tag={Link} to='/'>Minhas Series</NavbarBrand>
+        <NavbarToggler onClick={toggle}/>
+          <Collapse isOpen={open} navbar>
+            <Nav className="ml-auto" navbar>
+            <NavItem>
+                <NavLink tag={Link} to="/series">Séries</NavLink>
+              </NavItem>
+              
+              <NavItem>
+                <NavLink tag={Link} to="/generos">Generos</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+
   </Navbar>
   )
   
